@@ -1,0 +1,205 @@
+@use "../../utils/funtions.scss" as funct;
+
+.container-section-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .container-login {
+        width: 70%;
+        display: flex;
+        justify-content: space-between;
+        gap: funct.px-to-vw(30);
+        margin-top: funct.px-to-vw(160);
+        border-radius: funct.px-to-vw(20);
+
+        @include funct.transform_web {
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        @include funct.transform_mobile {
+            width: 90%;
+            flex-direction: column;
+        }
+
+        .container-left-login {
+            padding: funct.px-to-vw(150) funct.px-to-vw(30);
+            background-color: #3B7DFF;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: funct.px-to-vw(20);
+            border-top-left-radius: funct.px-to-vw(20);
+            border-bottom-left-radius: funct.px-to-vw(20);
+
+            .title-left {
+                color: #fff;
+                font-size: funct.px-to-vw(30);
+                font-weight: 600;
+                margin-bottom: funct.px-to-vw(20);
+            }
+
+            .txt-login-left {
+                width: funct.px-to-vw(700);
+                color: #fff;
+                font-size: funct.px-to-vw(16);
+                font-weight: 400;
+                text-align: center;
+                margin-bottom: funct.px-to-vw(20);
+            }
+
+            .txt-term-and-cond {
+                color: #fff;
+                font-size: funct.px-to-vw(14);
+                font-weight: 400;
+                text-align: center;
+                margin-bottom: funct.px-to-vw(20);
+            }
+
+        }
+
+        @include funct.transform_mobile {
+            .container-left-login {
+                display: none;
+            }
+        }
+
+        .container-right-login {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            @include funct.transform_web {
+                padding-top: funct.px-to-vw(60);
+                width: funct.px-to-vw(550);
+            }
+
+            @include funct.transform_mobile {
+                width: 100%;
+            }
+
+
+            .title-right {
+                color: #000;
+                font-weight: 600;
+
+                @include funct.transform_web {
+                    font-size: funct.px-to-vw(30);
+                    width: 86%;
+                    margin-bottom: funct.px-to-vw(20);
+                }
+
+                @include funct.transform_mobile {
+                    font-size: funct.px-to-vw(180);
+                    width: 100%;
+                }
+            }
+
+            form {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                label {
+                    color: #000;
+                    font-weight: 600;
+                    margin-bottom: funct.px-to-vw(10);
+
+                    @include funct.transform_web {
+                        width: 85%;
+                        font-size: funct.px-to-vw(20);
+                    }
+
+                    @include funct.transform_mobile {
+                        margin-bottom: funct.px-to-vw(90);
+                        width: 100%;
+                        font-size: funct.px-to-vw(140);
+                    }
+                }
+
+                input {
+                    width: 80%;
+                    border: 1px solid #ccc;
+                    border-radius: funct.px-to-vw(5);
+
+                    @include funct.transform_web {
+                        font-size: funct.px-to-vw(16);
+                        padding: funct.px-to-vw(10) funct.px-to-vw(15);
+                        margin-bottom: funct.px-to-vw(20);
+                    }
+
+                    @include funct.transform_mobile {
+                        width: 90%;
+                        font-size: funct.px-to-vw(130);
+                        padding: funct.px-to-vw(70) funct.px-to-vw(70);
+                        margin-bottom: funct.px-to-vw(50);
+                        border-radius: funct.px-to-vw(60);
+                    }
+                }
+
+                button {
+                    width: 86%;
+                    padding: funct.px-to-vw(10) funct.px-to-vw(15);
+                    background-color: #3B7DFF;
+                    color: #fff;
+                    font-size: funct.px-to-vw(16);
+                    font-weight: 600;
+                    border: none;
+                    border-radius: funct.px-to-vw(5);
+                    cursor: pointer;
+                    margin-bottom: funct.px-to-vw(20);
+
+                    @include funct.transform_mobile {
+                        margin-top: funct.px-to-vw(100);
+                        width: 100%;
+                        font-size: funct.px-to-vw(130);
+                        padding: funct.px-to-vw(70) funct.px-to-vw(70);
+                        border-radius: funct.px-to-vw(60);
+                    }
+                }
+
+                .container-line-login {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 95%;
+                    margin-bottom: funct.px-to-vw(20);
+                    gap: funct.px-to-vw(20);
+
+                    @include funct.transform_mobile {
+                                            width: 110%;
+                        gap: funct.px-to-vw(50);
+                    }
+
+                    .line-login {
+                        width: 40%;
+                        height: funct.px-to-vw(3);
+                        background-color: #000;
+
+                        @include funct.transform_mobile {
+                            margin-top: funct.px-to-vw(50);
+                            width: 40%;
+                            height: funct.px-to-vw(10);
+                        }
+
+                    }
+
+                    .txt-or {
+                        font-size: funct.px-to-vw(14);
+                        color: #000;
+
+                        @include funct.transform_mobile {
+                            font-size: funct.px-to-vw(100);
+                        }
+                    }
+                }
+            }
+
+        }
+
+    }
+}
