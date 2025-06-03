@@ -8,7 +8,7 @@ function Login() {
         <div className="container-login">
             <div className="container-left-login">
                 <h2 className='title-left'>Focus</h2>
-                <p className='txt-login-left'>Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.</p>
+                <p className='txt-login-left'>Hay que agregar una descripcióncorta sobre el sistema, ya sea como inickar sesion o que se puede hacer dentro.</p>
                 <p className='txt-term-and-cond'>Terminos y Condiciones</p>
             </div>
             <div className="container-right-login">
