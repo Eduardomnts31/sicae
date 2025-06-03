@@ -1,7 +1,12 @@
+import { data } from 'react-router-dom';
+import { useLogin } from './hook/useLogin';
 import './login.scss';
 
 function Login() {
 
+    const {errors, formData, handleChange, handleSubmit}  =  useLogin((data) => {
+        console.log('Form submitted:', data);
+    });
 
   return (
     <div className="container-section-login">
@@ -13,17 +18,31 @@ function Login() {
             </div>
             <div className="container-right-login">
                 <h1 className='title-right'>Iniciar sesion para <br />continuar</h1>
-                <form action="">
-                    <label htmlFor="">Correo electronico:</label>
-                    <input type="email" placeholder="Ingrese su correo electronico" />
-                    <label htmlFor="">Password:</label>
-                    <input type="password" placeholder="Ingrese su password" />
+                <form action="" onSubmit={handleSubmit}>
+                    <label htmlFor="matricula">Matricula:</label>
+                    <input 
+                    type="text" 
+                    placeholder="Ingrese su Matricula"
+                    name='matricula'
+                    value={formData.matricula}
+                    onChange={handleChange}
+                    />
+                    {errors.email && <span className='error'>{errors.email}</span>}
+                    <label htmlFor="password">Password:</label>
+                    <input 
+                    type="password" 
+                    placeholder="Ingrese su password"
+                    name='password'
+                    value={formData.password}
+                    onChange={handleChange}
+                    />
+                    {errors.password && <span className='error'>{errors.password}</span>}
                     <button type="submit">Iniciar sesion</button>
-                    <div className="container-line-login">
+                    {/* <div className="container-line-login">
                         <div className="line-login"></div>
                         <p className='txt-or'>O</p>
                         <div className="line-login"></div>
-                    </div>
+                    </div> */}
                 </form>
             </div>
 
