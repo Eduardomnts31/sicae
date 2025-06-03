@@ -1,0 +1,17 @@
+
+@function px-to-vw($px, $base: 1920) {
+    @return ($px / $base) * 100vw;
+}
+
+
+@mixin transform_mobile {
+    @media (max-width: 767px) {
+        @content;
+    }
+}
+
+@mixin transform_web {
+    @media (min-width: 768px) {
+        @content;
+    }
+}
