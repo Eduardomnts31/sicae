@@ -16,7 +16,7 @@ const roles = db.define('roles',{
   }
 }, {
   tableName: 'roles',      // Especifica el nombre exacto de la tabla si no es plural
-  timestamps: false        // Si tu tabla no tiene columnas createdAt / updatedAt
+  timestamps: false        //eliminar columnas qué no están en la tabla
 });
 
 export default roles;
