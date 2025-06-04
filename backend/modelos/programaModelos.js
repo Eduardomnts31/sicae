@@ -11,8 +11,8 @@ const programas = db.define('programa',{
     nombre: {type: DataTypes.STRING},
     clave: {type: DataTypes.STRING}
 }, {
-  tableName: 'programa',      // Especifica el nombre exacto de la tabla si no es plural
-  timestamps: false        // Si tu tabla no tiene columnas createdAt / updatedAt
+  tableName: 'programa', //asignarle el nombre de la tabla, ya que seq pluraliza la tabla en base colo la definamos arriba
+  timestamps: false   //para eliminar columnas que genera sequelize 
 });
 
 export default programas
