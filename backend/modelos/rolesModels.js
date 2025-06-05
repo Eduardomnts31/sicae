@@ -13,10 +13,14 @@ const roles = db.define('roles',{
   },
   descripcion: {
     type: DataTypes.TEXT
+  },
+  estado: {
+    type: DataTypes.STRING,
+    defaultValue: ""
   }
 }, {
   tableName: 'roles',      // Especifica el nombre exacto de la tabla si no es plural
-  timestamps: false        //eliminar columnas qué no están en la tabla
+  timestamps: false        // Si tu tabla no tiene columnas createdAt / updatedAt
 });
 
 export default roles;

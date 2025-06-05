@@ -73,5 +73,3 @@ export const actualizarPrograma = async(req, res)=>{
         res.json({message: error.message});
     }
 }
-
-export default programas;
