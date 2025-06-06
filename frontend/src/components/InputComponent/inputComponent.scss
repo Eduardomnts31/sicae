@@ -1,0 +1,66 @@
+@use "../../utils/funtions.scss" as funct;
+
+.input-component {
+  display: flex;
+  flex-direction: column;
+  gap: funct.px-to-vw(10);
+  width: 87%;
+
+  .input-label {
+    color: #000;
+    font-weight: 600;
+
+    @include funct.transform_web {
+      width: 100%;
+      font-size: funct.px-to-vw(20);
+    }
+
+    @include funct.transform_mobile {
+      width: 100%;
+      font-size: funct.px-to-vw(140);
+      margin-bottom: funct.px-to-vw(40);
+    }
+  }
+
+  .input-container-all {
+    display: flex;
+    align-items: center;
+
+    @include funct.transform_mobile {
+      gap: funct.px-to-vw(40);
+    }
+
+    .input-icon {
+      position: relative;
+      left: funct.px_to_vw(5);
+      background-color: #3B7DFF;
+      width: funct.px-to-vw(40);
+      height: auto;
+      padding: funct.px_to_vw(6);
+      border-top-left-radius: funct.px-to-vw(30);
+      border-bottom-left-radius: funct.px-to-vw(30);
+
+      @include funct.transform_mobile {
+
+        width: funct.px-to-vw(100);
+      }
+    }
+
+    .input-field {
+      width: 100%;
+      border-left: 1px solid transparent;
+      border-radius: funct.px-to-vw(5);
+
+      @include funct.transform_web {
+        font-size: funct.px-to-vw(16);
+        padding: funct.px-to-vw(15) funct.px-to-vw(15);
+      }
+
+      @include funct.transform_mobile {
+        font-size: funct.px-to-vw(130);
+        padding: funct.px-to-vw(70);
+        border-radius: funct.px-to-vw(60);
+      }
+    }
+  }
+}

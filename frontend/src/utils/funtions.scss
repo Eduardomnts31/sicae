@@ -1,5 +1,5 @@
 
-@function px-to-vw($px, $base: 1920) {
+@function px_to_vw($px, $base: 1920) {
     @return ($px / $base) * 100vw;
 }
 

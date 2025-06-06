@@ -104,42 +104,42 @@
                 justify-content: center;
                 align-items: center;
 
-                label {
-                    color: #000;
-                    font-weight: 600;
-                    margin-bottom: funct.px-to-vw(10);
+                // label {
+                //     color: #000;
+                //     font-weight: 600;
+                //     margin-bottom: funct.px-to-vw(10);
 
-                    @include funct.transform_web {
-                        width: 85%;
-                        font-size: funct.px-to-vw(20);
-                    }
+                //     @include funct.transform_web {
+                //         width: 85%;
+                //         font-size: funct.px-to-vw(20);
+                //     }
 
-                    @include funct.transform_mobile {
-                        margin-bottom: funct.px-to-vw(90);
-                        width: 100%;
-                        font-size: funct.px-to-vw(140);
-                    }
-                }
+                //     @include funct.transform_mobile {
+                //         margin-bottom: funct.px-to-vw(90);
+                //         width: 100%;
+                //         font-size: funct.px-to-vw(140);
+                //     }
+                // }
 
-                input {
-                    width: 80%;
-                    border: 1px solid #ccc;
-                    border-radius: funct.px-to-vw(5);
+                // input {
+                //     width: 80%;
+                //     border: 1px solid #ccc;
+                //     border-radius: funct.px-to-vw(5);
 
-                    @include funct.transform_web {
-                        font-size: funct.px-to-vw(16);
-                        padding: funct.px-to-vw(10) funct.px-to-vw(15);
-                        margin-bottom: funct.px-to-vw(20);
-                    }
+                //     @include funct.transform_web {
+                //         font-size: funct.px-to-vw(16);
+                //         padding: funct.px-to-vw(10) funct.px-to-vw(15);
+                //         margin-bottom: funct.px-to-vw(20);
+                //     }
 
-                    @include funct.transform_mobile {
-                        width: 90%;
-                        font-size: funct.px-to-vw(130);
-                        padding: funct.px-to-vw(70) funct.px-to-vw(70);
-                        margin-bottom: funct.px-to-vw(50);
-                        border-radius: funct.px-to-vw(60);
-                    }
-                }
+                //     @include funct.transform_mobile {
+                //         width: 90%;
+                //         font-size: funct.px-to-vw(130);
+                //         padding: funct.px-to-vw(70) funct.px-to-vw(70);
+                //         margin-bottom: funct.px-to-vw(50);
+                //         border-radius: funct.px-to-vw(60);
+                //     }
+                // }
 
                 button {
                     width: 86%;
