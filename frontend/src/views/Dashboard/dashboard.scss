@@ -1,0 +1,17 @@
+.dashboard-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    .dashboard-container-content{
+        display: flex;
+        flex-direction: row;
+        .dashboard-container-left-menu{
+            height: fit-content;
+            width: 25%;
+        }
+        .dashboard-section-content{
+            height: fit-content;
+            width: 85%;
+        }
+    }
+}
