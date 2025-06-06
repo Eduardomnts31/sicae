@@ -9,11 +9,12 @@ import db from "./database/db.js";
 
 const app = express();
 app.use(cors());
-app.use(express.json())
+app.use(express.json());
 
-app.use('/api/roles', rolRoutes);
-app.use('/api/programas', programasRoutes);
-app.use('/api/generaciones', genRoutes);
+app.use('/api/roles', rolRoutes);//api crud roles
+app.use('/api/programas', programasRoutes);//api crud programas
+app.use('/api/generaciones', genRoutes);//api crud generaciones
+
 
 async function conectarDB() {
   try {

@@ -47,19 +47,24 @@ export const crearPrograma = async (req, res)=>{
 
 export const eliminarPrograma = async (req, res)=>{
     try {
-        await programas.destroy({
+        await programas.update({estado: 'desactivado'},{
             where: {id:req.params.id}
         });
-        res.json("ELIMINADO EXITOSAMENTE");
+        res.json("PROGRAMA ELIMINADO EXITOSAMENTE")
     } catch (error) {
         res.json({message: error.message});
     }
 }
 export const eliminarTodo = async (req, res) => {
   try {
-    await programas.destroy({ where: {}, truncate: true });
-    res.json("SE ELIMINARON TODOS LOS DATOS");
+    const [count] = await programas.update(
+      { estado: "desactivado" },
+      { where: {} }
+    );
+    console.log(`SE ELIMINARON ${count}`);
+    res.json(`SE ELIMINARON ${count}`);
   } catch (error) {
+    console.error("ERROR EN eliminarTodo:", error.message);
     res.status(500).json({ message: error.message });
   }
 };

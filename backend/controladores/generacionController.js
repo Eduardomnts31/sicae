@@ -20,7 +20,7 @@ export const getAllGeneraciones = async ( req, res)=>{
 
 export const getGeneracion = async ( req, res)=>{
     try {
-        const selectGeneraciones = await programas.findAll({
+        const selectGeneraciones = await generaciones.findAll({
             where: {
                 id:req.params.id
             }
@@ -47,22 +47,26 @@ export const crearGeneracion = async (req, res)=>{
 /*||||||||||||||||*/
 
 export const eliminarGeneracion = async(req, res)=>{
-    try{
-        await generaciones.destroy({
-            where: {id: req.params.id}
+    try {
+        await generaciones.update({estado: 'desactivado'},{
+            where: {id:req.params.id}
         });
-        res.json("DATO ELIMINADO EXITOSAMENTE");
-    }catch(error){
-         res.json({message: error.message});
+        res.json("GENERACION ELIMINADO EXITOSAMENTE")
+    } catch (error) {
+        res.json({message: error.message});
     }
 }
-export const eliminarTODO = async (req, res)=>{
+export const eliminarTodo = async (req, res)=>{
     try {
-        await generaciones.destroy({where: {}, truncate: true});
-        res.json("SE ELIMNARON TODOS LOS DATOS");
-    } catch (error) {
-         res.json({message: error.message});
-    }
+    const [count] = await generaciones.update(
+      { estado: "desactivado" },
+      { where: {} }
+    );
+    console.log(`SE ELIMINARON ${count}`);
+    res.json(`SE ELIMINARON ${count}`);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
 }
 
 
