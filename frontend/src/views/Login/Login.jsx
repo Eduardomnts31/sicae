@@ -40,7 +40,6 @@ function Login() {
                         <button type="submit">Iniciar sesion</button>
                     </form>
                 </div>
-
             </div>
 
         </div>
