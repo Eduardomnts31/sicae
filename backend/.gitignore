@@ -1,2 +1,3 @@
 #ignroar el dotenv con credenciales fuertes
 .env
+node_modules
