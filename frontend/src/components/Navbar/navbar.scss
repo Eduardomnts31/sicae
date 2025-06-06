@@ -1,0 +1,73 @@
+@use "../../utils/funtions.scss" as funct;
+
+.navbar-container{
+    display: flex;
+    background-color: #3B7DFF;
+    height: fit-content;
+    justify-content: space-between;
+    .navbar-logo{
+        img{
+            object-fit: contain;
+            width: funct.px-to-vw(110);
+        }
+    }
+    .navbar-links{
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        .dashboard-return{
+            cursor: pointer;
+            color: white;
+            font-size: 16px;
+        }
+    }
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+  padding-right: funct.px-to-vw(50);
+
+  .profile-dropdown {
+    position: relative;
+    cursor: pointer;
+
+    .profile-icon {
+      width: funct.px-to-vw(50);
+      border-radius: 50%;
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      background-color: white;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 0.5rem 0;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      display: none;
+      z-index: 1000;
+      min-width: 150px;
+
+      .dropdown-item {
+        padding: 0.5rem 1rem;
+        white-space: nowrap;
+        cursor: pointer;
+        transition: background 0.2s ease;
+
+        &:hover {
+          background-color: #f0f0f0;
+        }
+      }
+    }
+
+    &:hover {
+      .dropdown-menu {
+        display: block;
+      }
+    }
+  }
+}
+
+}

@@ -1,0 +1,18 @@
+@use "../../../utils/funtions.scss" as fonts;
+
+.container-asistencias-content{padding-top: fonts.px_to_vw(30);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+    h2{
+        text-align: center;
+    }
+    button{
+        width: 15%;
+        padding: fonts.px_to_vw(12);
+    }
+
+
+}
