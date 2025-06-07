@@ -57,7 +57,6 @@ export const eliminarTodo = async (req, res) => {
       { estado: "desactivado" },
       { where: {} }
     );
-    console.log(`SE ELIMINARON ${count}`);
     res.json(`SE ELIMINARON ${count}`);
   } catch (error) {
     console.error("ERROR EN eliminarTodo:", error.message);

@@ -11,12 +11,12 @@ const usuarios = db.define('usuarios', {
         type: DataTypes.STRING
     },
     matricula: {
-        type: DataTypes.INT
+        type: DataTypes.INTEGER
     },
     contraseña: {
         type: DataTypes.STRING
     },
-    email: {
+    correo: {
         type: DataTypes.STRING
     },
     telefono:{
@@ -30,7 +30,11 @@ const usuarios = db.define('usuarios', {
     },
     rol:{
         type: DataTypes.INTEGER
-    }
+    },
+    estado: {
+    type: DataTypes.STRING,
+    defaultValue: ""
+  }
 
 }, {
     tableName: 'usuarios',

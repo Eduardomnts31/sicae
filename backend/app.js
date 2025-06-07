@@ -3,6 +3,7 @@ import cors from 'cors';
 import rolRoutes from './rutas/rutasRol.js';
 import programasRoutes from './rutas/rutasPrograma.js';
 import genRoutes from './rutas/rutasGeneracion.js';
+import usuariosRoutes from './rutas/rutasUsuarios.js';
 import db from "./database/db.js";
 
 
@@ -14,6 +15,7 @@ app.use(express.json());
 app.use('/api/roles', rolRoutes);//api crud roles
 app.use('/api/programas', programasRoutes);//api crud programas
 app.use('/api/generaciones', genRoutes);//api crud generaciones
+app.use('/api/usuarios', usuariosRoutes);
 
 
 async function conectarDB() {
