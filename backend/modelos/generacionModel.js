@@ -13,6 +13,10 @@ const generaciones = db.define('generaciones', {
   },
     descripcion: {
     type: DataTypes.STRING
+  },
+  estado: {
+    type: DataTypes.STRING,
+    defaultValue: ""
   }
 
 },{

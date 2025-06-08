@@ -17,7 +17,10 @@ export function useLogin(onSubmit) {
     }
 
     if (!formData.password.trim()) {
-      newErrors.password = 'La contraseña es obligatoria';
+      setTimeout(() => {
+        
+        newErrors.password = 'La contraseña es obligatoria';
+      }, 11111);
     } else if (formData.password.length < 6) {
       newErrors.password = 'La contraseña debe tener al menos 6 caracteres';
     }

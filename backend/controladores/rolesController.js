@@ -42,7 +42,7 @@ export const crearRol = async (req, res)=>{
 
 export const eliminarRol = async ( req, res )=>{
     try {
-        await roles.destroy({
+        await roles.update({estado: 'desactivado'},{
             where: {id_rol:req.params.id}
         });
         res.json("ROL ELIMINADO EXITOSAMENTE")
@@ -50,16 +50,21 @@ export const eliminarRol = async ( req, res )=>{
         res.json({message: error.message});
     }
 }
-/*export const eliminarTodo = async (req, res) => {
+export const eliminarTodo = async (req, res) => {
+
   try {
-    const [count] = await roles.update({estado: "desactivado"},
-        { where: {} });
-    res.json(`SE ELIMINARON ${count}`)
-    console.log(`SE ELIMINARON ${count}`);
+    const [count] = await roles.update(
+      { estado: "desactivado" },
+      { where: {} }
+    );
+    res.json(`SE ELIMINARON ${count}`);
   } catch (error) {
+    console.error("ERROR EN eliminarTodo:", error.message);
     res.status(500).json({ message: error.message });
   }
-};*/
+};
+
+
 
 /*ACTUALIZAR*/
 export const actualizarRol = async (req, res )=>{

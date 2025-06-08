@@ -9,7 +9,11 @@ const programas = db.define('programa',{
     autoIncrement: true
   },
     nombre: {type: DataTypes.STRING},
-    clave: {type: DataTypes.STRING}
+    clave: {type: DataTypes.STRING},
+    estado: {
+        type: DataTypes.STRING,
+        defaultValue: ""
+      }
     
 }, {
   tableName: 'programa',      // Especifica el nombre exacto de la tabla si no es plural

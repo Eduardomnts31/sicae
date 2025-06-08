@@ -1,12 +1,15 @@
 import express from "express";
-import { actualizarUsuario, crearUsuario, eliminarUsuario, getAllUsuarios, getUsuario } from "../controladores/usuariosController";
+import { actualizarUsuario, crearUsuario, eliminarTodo, eliminarUsuario, getAllUsuarios, getUsuario } from "../controladores/usuariosController.js";
 
-const usuariosRutas = new express.Router();
+const usuariosRoutes = new express.Router();
 
-usuariosRutas.get('/', getAllUsuarios);
-usuariosRutas.get('/:id', getUsuario);
-usuariosRutas.post('/', crearUsuario);
-usuariosRutas.put('/:id', actualizarUsuario);
-usuariosRutas.delete('/:id', eliminarUsuario);
 
-export default usuariosRutas;
+usuariosRoutes.put('/eliminar/:id', eliminarUsuario);
+usuariosRoutes.put('/eliminar/', eliminarTodo);
+
+usuariosRoutes.get('/', getAllUsuarios);
+usuariosRoutes.get('/:id', getUsuario);
+usuariosRoutes.post('/', crearUsuario);
+usuariosRoutes.put('/:id', actualizarUsuario);
+
+export default usuariosRoutes;
