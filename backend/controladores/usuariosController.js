@@ -1,5 +1,3 @@
-
-import AsyncQueue from "sequelize/lib/dialects/mssql/async-queue";
 import usuarios from "../modelos/usuariosModels.js";
 import bcrypt from 'bcryptjs';
 
@@ -82,6 +80,9 @@ export const eliminarUsuario = async (req, res)=>{
         res.json({message: error.message});
     }
 }
+
+
+
 
 export const eliminarTodo = async (req, res)=>{
     try {
