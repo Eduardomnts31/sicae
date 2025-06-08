@@ -10,7 +10,7 @@ function Dashboard() {
 
   const renderComponente = () => {
     switch (componenteActivo) {
-      case "asistencia":
+      case "Asistencias":
         return <Asistencia />;
       case "calificaciones":
         return <Calificaciones />;
@@ -21,9 +21,6 @@ function Dashboard() {
 
   return (
     <div className="dashboard-container">
-      <div className="dashboard-container-top-menu">
-        <Navbar />
-      </div>
       <div className="dashboard-container-content">
         <div className="dashboard-container-left-menu">
           <LateralMenu onSeleccionarModulo={setComponenteActivo} />
