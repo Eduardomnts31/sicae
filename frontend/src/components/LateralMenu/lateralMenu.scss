@@ -1,28 +1,55 @@
 @use "../../utils/funtions.scss" as funct;
 
-.Lateral-Menu-container-left{
-    border-right: 3px solid blue;
+.Lateral-Menu-container-left {
     width: 100%;
-    .container-menu-items{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: funct.px_to_vw(160);
+
+    .container-icon-image-profile {
+        width: fit-content;
+        height: fit-content;
+        margin-bottom: funct.px_to_vw(40);
+
+        .imgae-profile {
+            width: funct.px_to_vw(150);
+            border: 4px solid rgb(3, 3, 3);
+            border-radius: 50%;
+
+        }
+    }
+
+    .container-menu-items {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        .container-navigation-menu{
-            padding: funct.px-to-vw(1);
-            width: 60%;
+        gap: funct.px_to_vw(10);
+
+        .container-navigation-menu {
+            cursor: pointer;
+            width: funct.px_to_vw(380);
+            height: funct.px_to_vw(50);
             display: flex;
             flex-direction: column;
             justify-content: center;
             text-align: left;
             align-items: center;
             padding-bottom: funct.px-to-vw(10);
-            &:hover{
-                border-bottom: 1px solid gray;
+            margin-bottom: funct.px_to_vw(20);
+
+            &.selected-section {
+                background-color: white;
+                color: #000;
+                width: funct.px_to_vw(380);
+                height: funct.px_to_vw(50);
+                border-radius: funct.px_to_vw(50);
+
             }
 
         }
 
     }
 }
-
