@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'Helvetica Black';
+    src: url('../../public/fonts/Helvetica/HelveticaNowText-Black.ttf');
+}
+
+@mixin family-Helvetica-Black{
+  font-family: 'HelveticaNowText Black', sans-serif;
+}

@@ -1,12 +1,13 @@
 import { data } from 'react-router-dom';
-import { useLogin } from './hook/useLogin';
+
 import './login.scss';
-import InputComponent from '../../components/InputComponent/InputComponent';
 import { icon_auth_1, icon_auth_2 } from '../../Data/imagens_data';
+import { useLogin } from './hook/useLogin';
+import InputComponent from '../../components/InputComponent/InputComponent';
 
-function Login() {
+export const Login = () => {
 
-    const { errors, formData, handleChange, handleSubmit } = useLogin((data) => {
+    const { errors, formData, handleChange, handleSubmit } = useLogin(() => {
         console.log('Form submitted:', data);
     });
 
@@ -22,21 +23,27 @@ function Login() {
                     <h1 className='title-right'>Iniciar sesion para <br />continuar</h1>
                     <form action="" onSubmit={handleSubmit}>
                         <InputComponent
-                            label="Nombre de usuario"
-                            iconSrc={icon_auth_1}
-                            placeholder="Ingresa tu matricula"
+                            iconSrc={icon_auth_1.url}
+                            placeholder="Ingresa tu email"
                             onChange={handleChange}
+                            name="email"
+                            type="text"
+                            value={formData.email}
                         />
                         <br />
                         <InputComponent
-                            label="password"
-                            iconSrc={icon_auth_2}
+                            iconSrc={icon_auth_2.url}
                             onChange={handleChange}
+                            name="password"
+                            type="password"
                             placeholder="Ingresa tu contraseña"
+                            value={formData.password}
+
                         />
                         <br />
                         {errors.email && <span className='error'>{errors.email}</span>}
                         {errors.password && <span className='error'>{errors.password}</span>}
+
                         <button type="submit">Iniciar sesion</button>
                     </form>
                 </div>
@@ -45,4 +52,3 @@ function Login() {
         </div>
     );
 }
-export default Login;

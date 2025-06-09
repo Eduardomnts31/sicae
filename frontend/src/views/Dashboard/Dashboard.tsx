@@ -1,9 +1,8 @@
 import { useState } from "react";
-import LateralMenu from "../../components/LateralMenu/LateralMenu";
-import Navbar from "../../components/Navbar/Navbar";
 import './dashboard.scss';
-import Asistencia from "./Asistencias/Asistencias";
+import LateralMenu from "../../components/LateralMenu/LateralMenu";
 import Calificaciones from "./Calificaciones/Calificaciones";
+import Asistencia from "./Asistencias/Asistencias";
 
 function Dashboard() {
   const [componenteActivo, setComponenteActivo] = useState("asistencia");
