@@ -40,6 +40,7 @@ export const getUsuario = async (req, res)=>{
 export const crearUsuario = async (req, res)=>{
     try {
         const {nombre, matricula, contraseña, correo, telefono, programa, generacion, rol} = req.body;
+        console.log(req.body)
 
         if(!nombre || !matricula || !contraseña){
             return res.status(400).json({message: "FAVOR DE ENVIAR DATOS"});

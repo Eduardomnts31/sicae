@@ -1,4 +1,5 @@
 @use "../../utils/funtions.scss" as funct;
+@use "../../utils/fuentes.scss" as style;
 
 .container-section-login {
     display: flex;
@@ -35,6 +36,7 @@
             border-bottom-left-radius: funct.px-to-vw(20);
 
             .title-left {
+                                @include style.family-Helvetica-Black;
                 color: #fff;
                 font-size: funct.px-to-vw(30);
                 font-weight: 600;
@@ -84,6 +86,7 @@
             .title-right {
                 color: #000;
                 font-weight: 600;
+                @include style.family-Helvetica-Black;
 
                 @include funct.transform_web {
                     font-size: funct.px-to-vw(30);
