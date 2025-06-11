@@ -23,11 +23,6 @@ app.use('/api/login', lgInUsr);
 
 app.use('/api/ip', ipRouter);
 
-
-//app.get("/api/test", (req, res) => {
-//  res.json({message:"Servidor funcionando"});
-//});
-
 async function conectarDB() {
   try {
     await db.authenticate();
