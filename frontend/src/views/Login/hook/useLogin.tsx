@@ -2,8 +2,10 @@
 import { useState, type ChangeEvent, type FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import api from '../../../Api/ApiPrefix';
+import type { RootState } from '../../../store/store';
+import { loginSuccess } from '../../../store/slices/auth/Authslice';
 
-// Define tipos para el formulario y errores
 interface FormData {
   email: string;
   password: string;
@@ -17,10 +19,6 @@ interface Errors {
 
 
 type OnSubmitFn = (data: any) => void;
-
-import api from '../../../Api/ApiPrefix';
-import type { RootState } from '../../../store/store';
-import { loginSuccess } from '../../../store/slices/auth/Authslice';
 
 export function useLogin(onSubmit: OnSubmitFn) {
   const [formData, setFormData] = useState<FormData>({ email: '', password: '' });

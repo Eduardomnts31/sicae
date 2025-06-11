@@ -1,0 +1,7 @@
+
+@use "../../../utils/funtions.scss" as fonts;
+
+
+.section-home-container{
+    margin: fonts.px_to_vw(40);
+}
