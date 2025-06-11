@@ -1,9 +1,10 @@
 import express from "express";
-import { ipController } from "../controladores/ipController.js";
+import { genCodigo, ipController, ipUsuario } from "../controladores/funcionesController.js";
 
-const ipRouter = new express.Router();
+const funcRouter = new express.Router();
 
-ipRouter.get('/', ipController);
+funcRouter.get('/server', ipController);
+funcRouter.get('/usuario', ipUsuario);
+funcRouter.get('/codigo', genCodigo);
 
-
-export default ipRouter;
+export default funcRouter;
