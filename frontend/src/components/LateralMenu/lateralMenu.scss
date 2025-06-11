@@ -1,4 +1,5 @@
 @use "../../utils/funtions.scss" as funct;
+@use "../../utils/fuentes.scss" as style;
 
 .Lateral-Menu-container-left {
     width: 100%;
@@ -14,10 +15,9 @@
         margin-bottom: funct.px_to_vw(40);
 
         .imgae-profile {
-            width: funct.px_to_vw(150);
+            width: funct.px_to_vw(100);
             border: 4px solid rgb(3, 3, 3);
             border-radius: 50%;
-
         }
     }
 
@@ -29,6 +29,7 @@
         gap: funct.px_to_vw(10);
 
         .container-navigation-menu {
+            @include style.family-Helvetica-Black;
             cursor: pointer;
             width: funct.px_to_vw(380);
             height: funct.px_to_vw(50);
@@ -41,15 +42,15 @@
             margin-bottom: funct.px_to_vw(20);
 
             &.selected-section {
+                @include style.family-Helvetica-Black;
+                transition: all 0.5s ease-in-out;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
                 background-color: white;
                 color: #000;
                 width: funct.px_to_vw(380);
                 height: funct.px_to_vw(50);
                 border-radius: funct.px_to_vw(50);
-
             }
-
         }
-
     }
 }

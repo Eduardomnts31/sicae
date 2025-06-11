@@ -1,0 +1,9 @@
+
+@use "../../utils/funtions.scss" as fonts;
+.section-advertisement{
+    .section-advertisement-title{
+        font-size: fonts.px_to_vw(30);
+        
+    }
+
+}

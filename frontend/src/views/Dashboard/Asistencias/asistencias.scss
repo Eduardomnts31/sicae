@@ -1,22 +1,7 @@
 @use "../../../utils/funtions.scss" as fonts;
 
-.container-asistencias-content{padding-top: fonts.px_to_vw(30);
-    background-color: #669CFF;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 40%;
-    justify-content: center;
-    padding-bottom: fonts.px_to_vw(50);
-    border-radius: fonts.px_to_vw(15);
-    margin: fonts.px_to_vw(40);
-    h2{
-        text-align: center;
-    }
-    button{
-        width: 15%;
-        padding: fonts.px_to_vw(12);
-    }
+.container-asistencias-content{
+
 
 
 }

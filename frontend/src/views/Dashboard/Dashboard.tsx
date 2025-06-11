@@ -3,6 +3,7 @@ import './dashboard.scss';
 import LateralMenu from "../../components/LateralMenu/LateralMenu";
 import Calificaciones from "./Calificaciones/Calificaciones";
 import Asistencia from "./Asistencias/Asistencias";
+import { Home } from "./Home/Home";
 
 function Dashboard() {
   const [componenteActivo, setComponenteActivo] = useState("asistencia");
@@ -13,6 +14,8 @@ function Dashboard() {
         return <Asistencia />;
       case "calificaciones":
         return <Calificaciones />;
+        case "Home":
+          return <Home/>
       default:
         return <div>Selecciona un módulo</div>;
     }

@@ -2,9 +2,9 @@
 .dashboard-container{
     background-color: #669CFF;
     width: 100%;
-    height: max-content;
+    height: fonts.px_to_vw(900);
     display: flex;
-        padding-bottom: fonts.px_to_vw(60);
+    padding-bottom: fonts.px_to_vw(60);
     flex-direction: column;
     .dashboard-container-content{
         display: flex;
@@ -14,11 +14,14 @@
             width: 25%;
         }
         .dashboard-section-content{
+            /* Example box-shadow, adjust as needed */
+            box-shadow: 1px 10px 10px 15px rgba(0, 0, 0, 0.1);
             background-color: #FFFF;
             border-radius: fonts.px_to_vw(30);
             width: 73%;
-            height: 100%;
-            padding-bottom: fonts.px_to_vw(450);
+            margin-top: 2vw;
+            height: fonts.px_to_vw(880
+            );
         }
     }
 }
