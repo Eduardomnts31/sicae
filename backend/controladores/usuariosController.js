@@ -36,6 +36,70 @@ export const getUsuario = async (req, res)=>{
     }
 }*/ //*metodo antiguo para crear usuario
 
+/*
+export const crearUsuario = async (req, res)=>{
+    try {
+        const {nombre, matricula, contraseña, correo, telefono, programa, generacion, rol} = req.body;
+        console.log(req.body)
+        console.log(req.body.contraseña);
+        if(!nombre || !matricula || !contraseña){
+            return res.status(400).json({message: "FAVOR DE ENVIAR DATOS"});
+        }
+        const hsContrasena = bcrypt.hashSync(contraseña, 8);
+        console.log('se obtuvieron los datos y se encripto la contraseña');
+
+        await usuarios.create({
+            nombre,
+            matricula,
+            contraseña: hsContrasena,
+            correo,
+            telefono,
+            programa,
+            generacion,
+            rol,
+            estado:"activo"
+            
+        });
+        
+        
+        res.status(201).json({ mensaje: "Usuario creado exitosamente" });
+console.log('se resonde que todo esta ok');
+        } catch (error) {
+        res.status(500).json({ mensaje: "Error al crear usuario", error: error.message });
+    }
+}
+
+/*
+export const createUser = async (req, res)=>{
+    try {
+        const {nombre, matricula, contrasena, correo, telefono, programa, generacion, rol} = req.body;
+        console.log(req.body);
+
+        if(!nombre || !contraseña || !matricula){
+                return res.status(400).json({message: "FAVOR DE ENVIAR DATOS", error: error.message});
+
+        }
+        const hsContrasena = bcrypt.hashSync(contrasena, 8);
+        await usuarios.create({
+            nombre, 
+            matricula,
+            contraseña: hsContrasena,
+            correo, 
+            telefono,
+            programa,
+            generacion,
+            rol,
+            estado: "activo",
+
+        })
+
+
+
+    } catch (error) {
+        
+    }
+}
+//*/
 
 export const crearUsuario = async (req, res)=>{
     try {
@@ -46,8 +110,6 @@ export const crearUsuario = async (req, res)=>{
             return res.status(400).json({message: "FAVOR DE ENVIAR DATOS"});
         }
         const hsContraseña = bcrypt.hashSync(contraseña, 8);
-        console.log(contraseña);
-
 
         await usuarios.create({
             nombre,
@@ -67,7 +129,7 @@ export const crearUsuario = async (req, res)=>{
     }
 }
 
-//*/
+
 export const eliminarUsuario = async (req, res)=>{
     try {
         await usuarios.update({estado: "desactivado"}, {
