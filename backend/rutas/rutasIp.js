@@ -7,4 +7,4 @@ funcRouter.get('/server', ipController);
 funcRouter.get('/usuario', ipUsuario);
 funcRouter.get('/codigo', genCodigo);
 
-export default funcRouter;
+export default funcRouter; 

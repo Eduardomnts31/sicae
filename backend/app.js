@@ -15,7 +15,6 @@ app.use(express.json());
 
 
 
-
 app.use('/api/roles', rolRoutes);//api crud roles
 app.use('/api/programas', programasRoutes);//api crud programas
 app.use('/api/generaciones', genRoutes);//api crud generaciones

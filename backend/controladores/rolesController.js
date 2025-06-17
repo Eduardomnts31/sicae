@@ -5,7 +5,7 @@ import roles from "../modelos/rolesModels.js";
 
 
 /*LEER*/
-
+ 
 export const getAllRoles = async (req,res)=>{
     try {
         const selectRoles = await roles.findAll();
