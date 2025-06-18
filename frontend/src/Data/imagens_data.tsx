@@ -14,3 +14,11 @@ export const icon_auth_2 = {
     url: '/imgs/candado.webp',
     alt: ''
 }
+export const see = {
+    url: '/imgs/see.webp',
+    alt: ''
+}
+export const notsee = {
+    url: '/imgs/nosee.webp',
+    alt: ''
+}

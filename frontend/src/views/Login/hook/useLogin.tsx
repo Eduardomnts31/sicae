@@ -1,10 +1,10 @@
 // hooks/useLogin.ts
 import { useState, type ChangeEvent, type FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import api from '../../../Api/ApiPrefix';
-import type { RootState } from '../../../store/store';
 import { loginSuccess } from '../../../store/slices/auth/Authslice';
+import type { LoginPayload } from '../../../interfaces/userProps';
 
 interface FormData {
   email: string;
@@ -53,37 +53,52 @@ export function useLogin(onSubmit: OnSubmitFn) {
     setErrors(prev => ({ ...prev, [name]: undefined }));
   };
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
 
-    if (!validate()) return;
+  if (!validate()) return;
 
-    try {
-      const payload = {
-        correo: formData.email,
-        contraseña: formData.password,
-      };
+  try {
+    const payload = {
+      correo: formData.email,
+      contraseña: formData.password,
+    };
 
-      console.log("Form submitted:", payload);
+    const { data } = await api.post('/login/', payload);
+    console.log("Respuesta del backend:", data);
 
-      const response = await api.post('/login/', payload);
-      console.log('Inicio de sesión exitoso:', response.data);
+    const usuario = data.usuarioLogged;
 
-      if (response.data.message === 'error al iniciar sesion') {
-        setErrors({ general: response.data.error });
-        return;
-      }
-
-      onSubmit(response.data);
-      dispatch(loginSuccess(response.data));
-
-      navigate('/dashboard');
-
-    } catch (error) {
-      console.error('Error al iniciar sesión:', error);
-      setErrors({ general: 'Error al iniciar sesión. Verifica tus credenciales.' });
+    if (!usuario || !data.accessToken) {
+      setErrors({ general: 'Respuesta inválida del servidor. Falta información.' });
+      return;
     }
-  };
+
+    const loginPayload: LoginPayload = {
+      error: undefined,
+      token: data.accessToken,
+      user: {
+        id: usuario.id,
+        correo: usuario.correo,
+        matricula: usuario.matricula,
+        nombre: usuario.nombre,
+        telefono: usuario.telefono,
+        rol: usuario.rol
+      }
+    };
+
+    dispatch(loginSuccess(loginPayload));
+    onSubmit(data);
+    navigate('/dashboard');
+
+  } catch (error) {
+    console.error("Error en el login:", error);
+    setErrors({ general: 'Error al iniciar sesión. Verifica tus credenciales.' });
+  }
+};
+
+
+
 
   return {
     formData,

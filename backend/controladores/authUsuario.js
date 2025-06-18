@@ -41,7 +41,8 @@ export const logInUsuario = async (req, res)=>{
                 nombre: loginUser.nombre,
                 correo: loginUser.correo,
                 matricula: loginUser.matricula,
-                telefono: loginUser.telefono
+                telefono: loginUser.telefono,
+                rol:  loginUser.rol
 
             },
             message:"INICIASTE SESION!",

@@ -1,31 +1,27 @@
-import { useState } from 'react';
+
 import { icon_profile } from '../../Data/imagens_data';
 import './lateralMenu.scss';
+import { useGeneral } from '../../Hooks/useGeneral';
 
-type LateralMenuProps = {
+export interface LateralMenuProps {
   onSeleccionarModulo: (key: string) => void;
 };
 
-type Modulo = {
+export interface Modulo {
   role: string;
   name: string;
   key: string;
 };
 
 const LateralMenu: React.FC<LateralMenuProps> = ({ onSeleccionarModulo }) => {
-  const [moduloSeleccionado, setModuloSeleccionado] = useState<string | null>(null);
+  const { moduloSeleccionado, modulos, setModuloSeleccionado } = useGeneral();
 
-  const modulos: Modulo[] = [
-    { role: 'Alumno', name: 'Home', key: 'Home'},
-    { role: 'Alumno', name: 'Calificaciones', key: 'calificaciones' },
-    { role: 'Alumno', name: 'Asistencias', key: 'Asistencias' },
-    { role: 'Alumno', name: 'Pagos', key: 'Pagos' },
-  ];
+        const handleClick = (key: string) => {
+        setModuloSeleccionado(key);
+        onSeleccionarModulo(key);
+      };
 
-  const handleClick = (key: string) => {
-    setModuloSeleccionado(key);
-    onSeleccionarModulo(key);
-  };
+
 
   return (
     <div className="Lateral-Menu-container-left">
