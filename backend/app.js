@@ -6,11 +6,11 @@ import genRoutes from './rutas/rutasGeneracion.js';
 import usuariosRoutes from './rutas/rutasUsuarios.js';
 import db from "./database/db.js";
 import lgInUsr from './rutas/rutasLogIn.js';
-import ipRouter from './rutas/rutasIp.js';
+import funcRouter from './rutas/rutasIp.js';
+import asisRoutes from './rutas/rutasAsistencias.js';
 const app = express();
 app.use(cors());
 app.use(express.json());
-
 
 
 
@@ -20,9 +20,11 @@ app.use('/api/programas', programasRoutes);//api crud programas
 app.use('/api/generaciones', genRoutes);//api crud generaciones
 app.use('/api/usuarios', usuariosRoutes);
 app.use('/api/login', lgInUsr);
+app.use('/api/asistencia', asisRoutes);
 
-app.use('/api/ip', ipRouter);
-
+app.use('/api/util', funcRouter);
+app.use('/api/util', funcRouter);
+app.use('/api/util', funcRouter);
 async function conectarDB() {
   try {
     await db.authenticate();

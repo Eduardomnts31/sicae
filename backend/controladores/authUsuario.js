@@ -3,6 +3,7 @@ import jwt from 'jsonwebtoken';
 import usuarios from '../modelos/usuariosModels.js';
 
 import dotenv from 'dotenv';
+import lgInUsr from '../rutas/rutasLogIn.js';
 
 dotenv.config();
 
@@ -42,7 +43,8 @@ export const logInUsuario = async (req, res)=>{
                 correo: loginUser.correo,
                 matricula: loginUser.matricula,
                 telefono: loginUser.telefono,
-                rol:  loginUser.rol
+                rol: loginUser.rol
+                
 
             },
             message:"INICIASTE SESION!",
