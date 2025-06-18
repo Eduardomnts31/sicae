@@ -2,6 +2,7 @@ import { useState } from "react";
 import Calificaciones from "../Calificaciones/Calificaciones";
 import Asistencia from "../Asistencias/Asistencias";
 import { Home } from "../Home/Home";
+import { Alumnos } from "../Alumnos/Alumnos";
 
 export const useDashboard = () => {
 
@@ -15,6 +16,8 @@ export const useDashboard = () => {
                 return <Calificaciones />;
             case "Home":
                 return <Home />
+            case "Alumnos":
+                return <Alumnos/>
             default:
                 return <div>Selecciona un módulo</div>;
         }
