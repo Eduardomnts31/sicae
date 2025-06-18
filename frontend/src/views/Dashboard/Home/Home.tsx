@@ -1,26 +1,41 @@
-
 import { useSelector } from "react-redux";
 import { Advertisement } from "../../../components/advertisement/Advertisement";
-import './home.scss'
+import './home.scss';
 import type { RootState } from "../../../store/Rootstate";
 import InputCode from "../../../components/InputCode/Inputcode";
 
+const rolMap: Record<string, string> = {
+  "2": "maestro",
+  "3": "estudiante",
+};
 
 export const Home = () => {
-    const {user} = useSelector((state: RootState) => state.auth)
-    return(
-        <div className="section-home-container">
-            <div className="container-top-home">
-                {
+  const { user } = useSelector((state: RootState) => state.auth);
 
-                <h2>Bienvenido, { user?.rol}</h2>
-                }
+  if (!user) return <div>Cargando...</div>;
 
-            </div>
-            <InputCode mode="estudiante" onComplete={() => console.log('cidgo valido, code')}></InputCode>
-            <InputCode mode="maestro"></InputCode>
-            <Advertisement/>
+  const rolNombre = rolMap[user.rol] || "Desconocido";
 
-        </div>
-    );
-}
+  return (
+    <div className="section-home-container">
+      <div className="container-top-home">
+        <h2>Bienvenido, {user.nombre} ({rolNombre})</h2>
+      </div>
+
+    {rolNombre === "estudiante" && (
+      <InputCode
+        mode="estudiante"
+        onComplete={() => console.log("Código válido para estudiante")}
+      />
+    )}
+
+    {rolNombre === "maestro" && (
+      <InputCode
+        mode="maestro"
+        onComplete={() => console.log("Código generado por maestro")}
+      />
+    )}
+      <Advertisement />
+    </div>
+  );
+};

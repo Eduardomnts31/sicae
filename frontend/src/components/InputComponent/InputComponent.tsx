@@ -1,4 +1,5 @@
 import { notsee, see } from '../../Data/imagens_data';
+import useMobile from '../../Hooks/useMobile';
 import './inputComponent.scss';
 import { useState } from 'react';
 

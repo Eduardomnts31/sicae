@@ -1,12 +1,12 @@
-
+// PrivateRoute.tsx
 import { useSelector } from 'react-redux';
 import { Navigate, useLocation } from 'react-router-dom';
-
 import type { ReactNode } from 'react';
 import type { RootState } from '../store/Rootstate';
 
 interface PrivateRouteProps {
   children: ReactNode;
+  allowedRoles?: string[];
 }
 
 const PrivateRoute = ({ children }: PrivateRouteProps) => {
@@ -17,7 +17,8 @@ const PrivateRoute = ({ children }: PrivateRouteProps) => {
     return <Navigate to="/" state={{ from: location }} replace />;
   }
 
-  return children;
+  return <>{children}</>;
 };
+
 
 export default PrivateRoute;
