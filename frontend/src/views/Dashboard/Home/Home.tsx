@@ -1,12 +1,13 @@
 import { useSelector } from "react-redux";
-import { Advertisement } from "../../../components/advertisement/Advertisement";
+// import { Advertisement } from "../../../components/advertisement/Advertisement";
 import './home.scss';
 import type { RootState } from "../../../store/Rootstate";
 import InputCode from "../../../components/InputCode/Inputcode";
 
 const rolMap: Record<string, string> = {
-  "2": "maestro",
-  "3": "estudiante",
+  "1": "estudiante",
+  "2": "admin",
+  "3": "maestro",
 };
 
 export const Home = () => {
@@ -35,7 +36,7 @@ export const Home = () => {
         onComplete={() => console.log("Código generado por maestro")}
       />
     )}
-      <Advertisement />
+      {/* <Advertisement /> */}
     </div>
   );
 };

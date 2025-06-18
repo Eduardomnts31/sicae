@@ -1,7 +1,8 @@
-
 import { icon_profile } from '../../Data/imagens_data';
 import './lateralMenu.scss';
-import { useGeneral } from '../../Hooks/useGeneral';
+import { useGeneral, type RoleNumber } from '../../Hooks/useGeneral';
+import { useSelector } from 'react-redux';
+import type { RootState } from '../../store/Rootstate';
 
 export interface LateralMenuProps {
   onSeleccionarModulo: (key: string) => void;
@@ -14,14 +15,17 @@ export interface Modulo {
 };
 
 const LateralMenu: React.FC<LateralMenuProps> = ({ onSeleccionarModulo }) => {
-  const { moduloSeleccionado, modulos, setModuloSeleccionado } = useGeneral();
 
-        const handleClick = (key: string) => {
-        setModuloSeleccionado(key);
-        onSeleccionarModulo(key);
-      };
+const userRoleNumber = useSelector((state: RootState) => Number(state.auth.user?.rol) as RoleNumber);
 
+const { moduloSeleccionado, modulos, setModuloSeleccionado } = useGeneral({ userRoleNumber });
 
+  
+
+  const handleClick = (key: string) => {
+    setModuloSeleccionado(key);
+    onSeleccionarModulo(key);
+  };
 
   return (
     <div className="Lateral-Menu-container-left">
