@@ -1,6 +1,6 @@
 @use "../../utils/funtions.scss" as fonts;
 .dashboard-container{
-    background-color: #669CFF;
+    background-color: #244F99;
     width: 100%;
     height: fonts.px_to_vw(900);
     display: flex;
@@ -11,17 +11,16 @@
         flex-direction: row;
         .dashboard-container-left-menu{
             height: fit-content;
-            width: 25%;
+            width: 18%;
         }
         .dashboard-section-content{
             /* Example box-shadow, adjust as needed */
-            box-shadow: 1px 10px 10px 15px rgba(0, 0, 0, 0.1);
+            // box-shadow: 1px 10px 10px 15px rgba(0, 0, 0, 0.1);
             background-color: #FFFF;
-            border-radius: fonts.px_to_vw(30);
-            width: 73%;
-            margin-top: 2vw;
-            height: fonts.px_to_vw(880
-            );
+            // border-radius: fonts.px_to_vw(30);
+            width: 92%;
+            // margin-top: 2vw;
+            height: fonts.px_to_vw(960);
         }
     }
 }

@@ -1,25 +1,10 @@
-import { useState } from "react";
+
 import './dashboard.scss';
 import LateralMenu from "../../components/LateralMenu/LateralMenu";
-import Calificaciones from "./Calificaciones/Calificaciones";
-import Asistencia from "./Asistencias/Asistencias";
-import { Home } from "./Home/Home";
+import { useDashboard } from './Hooks/DashboardHooks';
 
 function Dashboard() {
-  const [componenteActivo, setComponenteActivo] = useState("asistencia");
-
-  const renderComponente = () => {
-    switch (componenteActivo) {
-      case "Asistencias":
-        return <Asistencia />;
-      case "calificaciones":
-        return <Calificaciones />;
-        case "Home":
-          return <Home/>
-      default:
-        return <div>Selecciona un módulo</div>;
-    }
-  };
+  const {setComponenteActivo, renderComponente} = useDashboard();
 
   return (
     <div className="dashboard-container">

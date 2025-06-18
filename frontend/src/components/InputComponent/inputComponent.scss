@@ -33,12 +33,12 @@
     .input-icon {
       position: relative;
       left: funct.px_to_vw(5);
-      background-color: #3B7DFF;
+      background-color: #244F99;
       width: funct.px-to-vw(40);
       height: auto;
       padding: funct.px_to_vw(6);
-      border-top-left-radius: funct.px-to-vw(30);
-      border-bottom-left-radius: funct.px-to-vw(30);
+      border-top-left-radius: funct.px-to-vw(10);
+      border-bottom-left-radius: funct.px-to-vw(10);
 
       @include funct.transform_mobile {
 
@@ -61,6 +61,18 @@
         padding: funct.px-to-vw(70);
         border-radius: funct.px-to-vw(60);
       }
+    }
+    .show-password-btn{
+      // width: funct.px_to_vw(40);
+      
+      // background-color: red;
+      border: none;
+      position: absolute;
+      transform: translate(340px, 0px);
+      .show-password-img{
+        width: funct.px_to_vw(30);
+      }
+      // transform: translate(30px 40px);
     }
   }
 }

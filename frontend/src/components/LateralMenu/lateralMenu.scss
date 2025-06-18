@@ -2,22 +2,27 @@
 @use "../../utils/fuentes.scss" as style;
 
 .Lateral-Menu-container-left {
+    
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-top: funct.px_to_vw(160);
+    // padding-top: funct.px_to_vw(160);
 
     .container-icon-image-profile {
+       
         width: fit-content;
         height: fit-content;
-        margin-bottom: funct.px_to_vw(40);
+        margin-bottom: funct.px_to_vw(70);
+        margin-top: funct.px_to_vw(50);
+
 
         .imgae-profile {
+            background-color: red;
             width: funct.px_to_vw(100);
-            border: 4px solid rgb(3, 3, 3);
-            border-radius: 50%;
+            // border: 4px solid rgb(3, 3, 3);
+            // border-radius: 50%;
         }
     }
 
@@ -31,8 +36,8 @@
         .container-navigation-menu {
             @include style.family-Helvetica-Black;
             cursor: pointer;
-            width: funct.px_to_vw(380);
-            height: funct.px_to_vw(50);
+            width: funct.px_to_vw(270);
+            height: funct.px_to_vw(40);
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -47,8 +52,8 @@
                 box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
                 background-color: white;
                 color: #000;
-                width: funct.px_to_vw(380);
-                height: funct.px_to_vw(50);
+                width: funct.px_to_vw(270);
+                height: funct.px_to_vw(40);
                 border-radius: funct.px_to_vw(50);
             }
         }
