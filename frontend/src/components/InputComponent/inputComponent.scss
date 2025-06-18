@@ -1,10 +1,16 @@
 @use "../../utils/funtions.scss" as funct;
+@use "../../utils/fuentes.scss" as style;
 
 .input-component {
   display: flex;
   flex-direction: column;
   gap: funct.px-to-vw(10);
-  width: 87%;
+  @include funct.transform_web {
+    width: 87%;
+  }
+    @include funct.transform_mobile {
+    width: 100%;
+  }
 
   .input-label {
     color: #000;
@@ -16,40 +22,54 @@
     }
 
     @include funct.transform_mobile {
-      width: 100%;
+      width: 90%;
       font-size: funct.px-to-vw(140);
       margin-bottom: funct.px-to-vw(40);
     }
   }
 
   .input-container-all {
+    // background-color: red;
+    border: 2px solid rgb(12, 12, 12);
+    background-color: funct.px_to_vw(15);
     display: flex;
     align-items: center;
+    width: funct.px_to_vw(470);
+    border-radius: funct.px_to_vw(15);
 
     @include funct.transform_mobile {
+      width: 100%;
       gap: funct.px-to-vw(40);
     }
 
     .input-icon {
-      position: relative;
-      left: funct.px_to_vw(5);
-      background-color: #244F99;
       width: funct.px-to-vw(40);
       height: auto;
       padding: funct.px_to_vw(6);
-      border-top-left-radius: funct.px-to-vw(10);
-      border-bottom-left-radius: funct.px-to-vw(10);
+      border-top-left-radius: funct.px_to_vw(12);
+      border-bottom-left-radius: funct.px_to_vw(12);
+      @include funct.transform_web {
+        background-color: #f4b64de1;
+        // mix-blend-mode: difference;
+        filter: invert(1);
+        
+      }
+
 
       @include funct.transform_mobile {
-
-        width: funct.px-to-vw(100);
+        // background-color: red;
+        padding: funct.px_to_vw(65);
+        width: funct.px-to-vw(170);
       }
     }
 
     .input-field {
+      // border: 1px solid red;
       width: 100%;
-      border-left: 1px solid transparent;
+      // border-left: 1px solid transparent;
       border-radius: funct.px-to-vw(5);
+      border: unset;
+      outline: none;
 
       @include funct.transform_web {
         font-size: funct.px-to-vw(16);
@@ -63,16 +83,17 @@
       }
     }
     .show-password-btn{
-      // width: funct.px_to_vw(40);
-      
-      // background-color: red;
-      border: none;
-      position: absolute;
-      transform: translate(340px, 0px);
+      padding: funct.px_to_vw(6);
       .show-password-img{
+        @include funct.transform_web {
         width: funct.px_to_vw(30);
       }
-      // transform: translate(30px 40px);
+      @include funct.transform_mobile {
+        background-color: none  ;
+        width: funct.px_to_vw(200);
+        padding-right: funct.px_to_vw(50);
+      }
+      }
     }
   }
 }

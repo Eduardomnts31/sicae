@@ -1,5 +1,6 @@
 import { useRef, useState, useEffect } from 'react';
 import './inputCode.scss';
+import api from '../../Api/ApiPrefix';
 
 type InputCodeProps = {
   length?: number;
@@ -68,12 +69,7 @@ const InputCode: React.FC<InputCodeProps> = ({
       setLoading(true);
       setMessage(null);
 
-      const res = await fetch('/api/generate-code', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-      });
-
-      const data = await res.json();
+      const { data } = await api.post('/')
       
       if (data.code && data.code.length === length) {
 
@@ -108,21 +104,14 @@ const InputCode: React.FC<InputCodeProps> = ({
       setLoading(true);
       setMessage(null);
       
-      // Simulación de API - reemplazar con tu endpoint real
-      const res = await fetch('/api/validate-code', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ code: currentCode }),
-      });
+      const {data } = await api.post('')
 
-      const data = await res.json();
-      
+
       if (data.valid) {
         setMessage({ text: 'Código válido. Acceso concedido.', type: 'success' });
         if (onComplete) onComplete(currentCode);
       } else {
         setMessage({ text: 'Código inválido. Intente nuevamente.', type: 'error' });
-        // Limpiar los inputs
         inputsRef.current.forEach(input => {
           if (input) input.value = '';
         });

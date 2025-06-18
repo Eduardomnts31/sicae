@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 
-// import PrivateRoute from './PrivateRoute'; 
+import PrivateRoute from './PrivateRoute'; 
 import Dashboard from '../views/Dashboard/Dashboard';
 import { Login } from '../views/Login/Login';
 
@@ -11,9 +11,9 @@ const ARoutes = () => {
       <Route
         path="/Dashboard"
         element={
+          <PrivateRoute>
             <Dashboard />
-          // <PrivateRoute>
-          // </PrivateRoute>
+           </PrivateRoute>
         }
       />
     </Routes>

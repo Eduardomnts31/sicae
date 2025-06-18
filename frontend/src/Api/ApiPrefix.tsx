@@ -6,7 +6,7 @@ const data = await res.json();//si se cumple obtengo la ipque esta en mi control
 
 const api = axios.create({
     
-    baseURL: `http://${data.ip}:8000/api`, //y la colocamos en la BASE URL para hacer la peticion de crear
+    baseURL: `http://192.168.101.113:8000/api`, //y la colocamos en la BASE URL para hacer la peticion de crear
     headers: {
         'Content-Type': 'application/json',
     },
