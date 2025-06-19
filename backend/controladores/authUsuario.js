@@ -1,9 +1,8 @@
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import usuarios from '../modelos/usuariosModels.js';
-
+import roles from '../modelos/rolesModels.js';
 import dotenv from 'dotenv';
-import lgInUsr from '../rutas/rutasLogIn.js';
 
 dotenv.config();
 
@@ -16,6 +15,11 @@ export const logInUsuario = async (req, res)=>{
         const loginUser= await usuarios.findOne({
             where: {correo: correo}
         });
+
+        const rolB = await roles.findOne({
+            where: {id_rol: loginUser.rol}
+        });
+        console.log(rolB.nombre_rol, " ||| ", rolB.descripcion );
         if(!correo || !contraseña){
             return res.status(400).json({message:"DATOS INCOMPLETOS"})
         }
@@ -43,8 +47,9 @@ export const logInUsuario = async (req, res)=>{
                 correo: loginUser.correo,
                 matricula: loginUser.matricula,
                 telefono: loginUser.telefono,
-                rol: loginUser.rol
-                
+                rol: loginUser.rol,
+                nombreRol: rolB.nombre_rol,
+                descripRol: rolB.descripcion
 
             },
             message:"INICIASTE SESION!",
