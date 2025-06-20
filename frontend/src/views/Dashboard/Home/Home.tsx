@@ -5,9 +5,9 @@ import type { RootState } from "../../../store/Rootstate";
 import InputCode from "../../../components/InputCode/Inputcode";
 
 const rolMap: Record<string, string> = {
-  "1": "estudiante",
-  "2": "admin",
-  "3": "maestro",
+  "1": "admin",
+  "2": "maestro",
+  "3": "alumno",
 };
 
 export const Home = () => {

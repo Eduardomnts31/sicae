@@ -19,6 +19,7 @@ export const logInUsuario = async (req, res)=>{
         const rolB = await roles.findOne({
             where: {id_rol: loginUser.rol}
         });
+
         console.log(rolB.nombre_rol, " ||| ", rolB.descripcion );
         if(!correo || !contraseña){
             return res.status(400).json({message:"DATOS INCOMPLETOS"})
@@ -27,19 +28,16 @@ export const logInUsuario = async (req, res)=>{
            return res.json({message: "USUARIO NO ENCONTRADO"})
         }
         
-        const passValidUser = bcrypt.compareSync(contraseña, loginUser.contraseña)
+        const passValidUser = bcrypt.compareSync(contraseña, loginUser.contraseña);
+        
 
         if(!passValidUser){
             return res.status(401).json({accessToken: null,message: "CONTRASEÑA INCORRECTA"});
-        }
-
-        const jwtTk = jwt.sign({
-            id: loginUser.id, correo: loginUser.correo
-        },process.env.JWT_TOKEN, {
-            expiresIn: '1h',
-            algorithm: 'HS256'
-        });
+        };
         
+        const jwtTk = jwt.sign({id: loginUser.id, correo: loginUser.correo},process.env.JWT_TOKEN, {expiresIn: '1h', algorithm: 'HS256'});
+        
+        console.log(loginUser.contraseña);
         res.status(200).json({
             usuarioLogged: {
                 id: loginUser.id,
@@ -54,9 +52,7 @@ export const logInUsuario = async (req, res)=>{
             },
             message:"INICIASTE SESION!",
             accessToken: jwtTk
-        })
-
-        //res.status(200).json({message: "DATOS CORRECTOS, INICIASTE SESION:D"})
+        });
         
 
 

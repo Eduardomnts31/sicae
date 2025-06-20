@@ -1,11 +1,12 @@
 import express from "express";
-import { actualizarUsuario, crearUsuario, eliminarTodo, eliminarUsuario, getAllUsuarios, getUsuario } from "../controladores/usuariosController.js";
+import { actualizarUsuario, crearUsuario, eliminarTodo, eliminarUsuario, getAllUsuarios, getUsuario,wactualizarUsuario } from "../controladores/usuariosController.js";
 
 const usuariosRoutes = new express.Router();
 
 
 usuariosRoutes.put('/eliminar/:id', eliminarUsuario);
 usuariosRoutes.put('/eliminar/', eliminarTodo);
+usuariosRoutes.put('/prueba/:id', wactualizarUsuario);
 
 usuariosRoutes.get('/', getAllUsuarios);
 usuariosRoutes.get('/:id', getUsuario);
