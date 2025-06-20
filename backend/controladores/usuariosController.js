@@ -66,7 +66,7 @@ export const wactualizarUsuario = async (req, res)=>{
             console.log("nuevo dato: ", nuevaHashContra);
         }
         
-        console.log("dato anterior: ", contraseña)
+        console.log("dato anterior: ", nuevaHashContra)
         /*await usuarios.update({
             nombre,
             matricula,
