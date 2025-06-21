@@ -10,7 +10,6 @@ export const getAllUsuarios = async (req,res)=>{
         res.json({message: error.message});
     }
 }
-
 export const getUsuario = async (req, res)=>{
     try {
         const selectUsuario = await usuarios.findAll({
@@ -52,22 +51,17 @@ export const crearUsuario = async (req, res)=>{
         res.status(500).json({ mensaje: "Error al crear usuario", error: error.message });
     }
 }
-export const wactualizarUsuario = async (req, res)=>{
+export const actualizarUsuario = async (req, res)=>{
     try {
-        const {nombre, matricula, contraseña, correo, telefono, programa, generacion, rol, estado} = req.body;
+        const {id, nombre, matricula, contraseña, correo, telefono, programa, generacion, rol, estado} = req.body;
         console.log(req.body);//$2b$08$ca/AmFhB.fG2ryxILrNZI.fBHqdkVXLOngtEVJr7KSsJ9ep47fAXy 
 
         if(!nombre || !matricula || !contraseña || !correo){
             return res.status(400).json({message: "FAVOR DE ENVIAR DATOS"});
         }
-       
         if(contraseña && contraseña.trim() != '' && !contraseña.startsWith('$2b$')){
             const nuevaHashContra =  bcrypt.hashSync(contraseña, 8);
-            console.log("nuevo dato: ", nuevaHashContra);
-        }
-        
-        console.log("dato anterior: ", nuevaHashContra)
-        /*await usuarios.update({
+            await usuarios.update({
             nombre,
             matricula,
             contraseña: nuevaHashContra,
@@ -76,16 +70,25 @@ export const wactualizarUsuario = async (req, res)=>{
             programa,
             generacion,
             rol,
+            estado},{where:{id: id}});
+            res.json("USUARIO ACTUALIZADO CORRECTAMENTE-se actualizo la contraseña y se mando encriptada a la bbdd")
+        }else{
+            await usuarios.update({
+            nombre,
+            matricula,
+            contraseña,
+            correo,
+            telefono,
+            programa,
+            generacion,
+            rol,
             estado
 
-        })*/
-        
-
-
-        
-
+        },{where:{id: id}});
+        res.json("USUARIO ACTUALIZADO CORRECTAMENTE-se dejo la misma contraseña ")
+        };
     } catch (error) {
-        
+        res.json({message: error.message});
     }
 }
 
@@ -110,15 +113,5 @@ export const eliminarTodo = async (req, res)=>{
         res.json(`SE ELIMINARON ${count}`);
     } catch (error) {
         res.json({message: error.message});
-    }
-}
-export const actualizarUsuario = async(req, res)=>{
-    try {
-        await usuarios.update(req.body, {
-            where: {id:req.params.id}   
-        });
-        res.json("USUARIO ACTUALIZADO CORRECTAMENTE")
-    } catch (error) {
-        
     }
 }

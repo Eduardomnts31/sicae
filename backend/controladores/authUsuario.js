@@ -9,7 +9,6 @@ dotenv.config();
 
 export const logInUsuario = async (req, res)=>{
     const {correo, contraseña} = req.body;
-    
     try {
 
         const loginUser= await usuarios.findOne({
@@ -48,7 +47,6 @@ export const logInUsuario = async (req, res)=>{
                 rol: loginUser.rol,
                 nombreRol: rolB.nombre_rol,
                 descripRol: rolB.descripcion
-
             },
             message:"INICIASTE SESION!",
             accessToken: jwtTk
@@ -61,4 +59,10 @@ export const logInUsuario = async (req, res)=>{
     }
 
 }
-
+export const logOutUsuario = async(req, res)=>{
+    try {
+        
+    } catch (error) {
+        
+    }
+}
