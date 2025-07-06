@@ -5,7 +5,7 @@ dotenv.config();
 export const ValidarUsuario = async (req, res, next)=>{
     // Accede correctamente al encabezado 'authorization' de la solicitud
     const authHeader = req.headers['authorization'];
-
+    console.log(authHeader);
     // Verifica si el authHeader existe y comienza con 'Bearer '
     const tokenValid = authHeader && authHeader.startsWith('Bearer ') ? authHeader.split(' ')[1] : null;
 
@@ -13,13 +13,12 @@ export const ValidarUsuario = async (req, res, next)=>{
         return res.status(403).json({message: 'Se necesita un token para acceder a esta ruta.'});
     }
 
-    jwt.verify(tokenValid, process.env.TOKEN, (err, decoded)=>{ // Considera renombrar tu variable de entorno para mayor claridad
+    jwt.verify(tokenValid, process.env.JWT_TOKEN, (err, decoded)=>{
         if(err){
-            // Usa mensajes diferentes para token expirado vs. inválido para una mejor depuración
             if (err.name === 'TokenExpiredError') {
                 return res.status(401).json({message: 'Tu sesión ha expirado, por favor inicia sesión nuevamente.'});
             }
-            return res.status(401).json({message: 'Token inválido, por favor inicia sesión nuevamente.'});
+            return res.status(401).json({message: 'Token inválido, verifica el token de validación.'});
         }
 
         req.usuario = decoded; // Adjunta la información decodificada del usuario a la solicitud

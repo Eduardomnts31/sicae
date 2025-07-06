@@ -7,11 +7,10 @@ export const ipController = (req, res) => {
     for (const name of Object.keys(interfaces)) {
       for (const iface of interfaces[name]) {
         if (iface.family === 'IPv4' && !iface.internal) {
-          return res.json({ ip: iface.address });
+          return res.json({ip: iface.address });
         }
       }
     }
-    res.json({ ip: 'localhost', texto: "prueba" });
   } catch (error) {
     res.json({ message: "Hubo un error en la petición", error });
   }

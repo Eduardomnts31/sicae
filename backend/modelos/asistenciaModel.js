@@ -19,9 +19,6 @@ const asistencias = db.define('asistencia', {
     fecha_alistado:{
         type: DataTypes.DATE
     },
-    hora:{
-        type: DataTypes.TIME
-    },
     estado:{
         type: DataTypes.STRING
     }

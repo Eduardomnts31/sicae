@@ -1,15 +1,16 @@
 import express from 'express';
 import { actualizarRol, crearRol, eliminarRol, eliminarTodo, getAllRoles, getRol } from '../controladores/rolesController.js';
+import { ValidarUsuario } from "../middlewares/authMid.js";
 const rolRoutes = new express.Router()
 
 
-rolRoutes.put('/eliminarRol/:id', eliminarRol);
-rolRoutes.put('/eliminarRoles', eliminarTodo); //comprobar este endpoint 
+rolRoutes.put('/eliminarRol/:id', ValidarUsuario, eliminarRol);
+rolRoutes.put('/eliminarRoles', ValidarUsuario, eliminarTodo); //comprobar este endpoint 
 
-rolRoutes.get('/', getAllRoles);
-rolRoutes.post('/', crearRol);
-rolRoutes.get('/:id', getRol);
-rolRoutes.put('/:id', actualizarRol);
+rolRoutes.get('/', ValidarUsuario, getAllRoles);
+rolRoutes.post('/', ValidarUsuario, crearRol);
+rolRoutes.get('/:id', ValidarUsuario, getRol);
+rolRoutes.put('/:id', ValidarUsuario, actualizarRol);
 
 
 

@@ -31,7 +31,7 @@ export const logInUsuario = async (req, res)=>{
         if(!passValidUser){
             return res.status(401).json({accessToken: null,message: "CONTRASEÑA INCORRECTA"});
         };
-        const jwtTk = jwt.sign({id: loginUser.id, correo: loginUser.correo},process.env.JWT_TOKEN, {expiresIn: '1h', algorithm: 'HS256'});
+        const jwtTk = jwt.sign({id: loginUser.id, correo: loginUser.correo, contraseña: loginUser.contraseña},process.env.JWT_TOKEN, {expiresIn: '1h', algorithm: 'HS256'});
         
         console.log(loginUser.contraseña);
         res.status(200).json({
