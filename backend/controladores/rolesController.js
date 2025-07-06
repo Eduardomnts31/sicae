@@ -7,6 +7,7 @@ import roles from "../modelos/rolesModels.js";
 /*LEER*/
  
 export const getAllRoles = async (req,res)=>{
+    console.log("hola mundo");
     try {
         const selectRoles = await roles.findAll();
         res.json(selectRoles);

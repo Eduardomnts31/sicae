@@ -15,4 +15,5 @@ export interface UserProps {
   nombre: string;
   telefono: string;
   rol: string;
+  nombreRol: string;
 }

@@ -18,8 +18,6 @@ export const logInUsuario = async (req, res)=>{
         const rolB = await roles.findOne({
             where: {id_rol: loginUser.rol}
         });
-
-        console.log(rolB.nombre_rol, " ||| ", rolB.descripcion );
         if(!correo || !contraseña){
             return res.status(400).json({message:"DATOS INCOMPLETOS"})
         }
@@ -33,7 +31,6 @@ export const logInUsuario = async (req, res)=>{
         if(!passValidUser){
             return res.status(401).json({accessToken: null,message: "CONTRASEÑA INCORRECTA"});
         };
-        
         const jwtTk = jwt.sign({id: loginUser.id, correo: loginUser.correo},process.env.JWT_TOKEN, {expiresIn: '1h', algorithm: 'HS256'});
         
         console.log(loginUser.contraseña);

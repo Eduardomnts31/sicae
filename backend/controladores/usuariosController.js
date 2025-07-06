@@ -54,7 +54,7 @@ export const crearUsuario = async (req, res)=>{
 export const actualizarUsuario = async (req, res)=>{
     try {
         const {id, nombre, matricula, contraseña, correo, telefono, programa, generacion, rol, estado} = req.body;
-        console.log(req.body);//$2b$08$ca/AmFhB.fG2ryxILrNZI.fBHqdkVXLOngtEVJr7KSsJ9ep47fAXy 
+        console.log(req.body);
 
         if(!nombre || !matricula || !contraseña || !correo){
             return res.status(400).json({message: "FAVOR DE ENVIAR DATOS"});

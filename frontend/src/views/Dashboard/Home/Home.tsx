@@ -21,6 +21,7 @@ export const Home = () => {
     <div className="section-home-container">
       <div className="container-top-home">
         <h2>Bienvenido, {user.nombre} ({rolNombre})</h2>
+        <h4>Permisos tipo: {user.nombreRol}</h4>
       </div>
 
     {rolNombre === "estudiante" && (

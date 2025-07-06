@@ -64,13 +64,7 @@ const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
       contraseña: formData.password,
     };
 
-<<<<<<< Updated upstream
-    const { data } = await api.post('/login/', payload);
-    console.log("Respuesta del backend:", data);
-=======
     const { data } = await (await api).post('/login/', payload);
-    // console.log("Respuesta del backend:", data); //hay que quitar o comentar esta linea ya que tira el hash 
->>>>>>> Stashed changes
 
     const usuario = data.usuarioLogged;
 
@@ -88,7 +82,9 @@ const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         matricula: usuario.matricula,
         nombre: usuario.nombre,
         telefono: usuario.telefono,
-        rol: usuario.rol
+        rol: usuario.rol,
+        nombreRol: usuario.nombreRol,
+      
       }
     };
 
