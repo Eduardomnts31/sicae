@@ -5,7 +5,6 @@ dotenv.config();
 export const ValidarUsuario = async (req, res, next)=>{
     // Accede correctamente al encabezado 'authorization' de la solicitud
     const authHeader = req.headers['authorization'];
-    console.log(authHeader);
     // Verifica si el authHeader existe y comienza con 'Bearer '
     const tokenValid = authHeader && authHeader.startsWith('Bearer ') ? authHeader.split(' ')[1] : null;
 

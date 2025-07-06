@@ -1,5 +1,4 @@
 import os from 'os';
-
 //funcion para obtener la ip del servidor
 export const ipController = (req, res) => {
   try {
@@ -29,7 +28,6 @@ export const ipUsuario = (req, res) => {
     });
   }
 };
-
 export const genCodigo = (req, res)=>{
   try {
     const codigo = Math.random().toString(36).substring(2, 8).toUpperCase();

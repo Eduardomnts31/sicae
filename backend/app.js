@@ -8,6 +8,7 @@ import db from "./database/db.js";
 import lgInUsr from './rutas/rutasLogIn.js';
 import funcRouter from './rutas/rutasIp.js';
 import asisRoutes from './rutas/rutasAsistencias.js';
+import codigoRouter from './rutas/rutasCodigo.js';
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -21,6 +22,7 @@ app.use('/api/generaciones', genRoutes);//api crud generaciones
 app.use('/api/usuarios', usuariosRoutes);
 app.use('/api/login', lgInUsr);
 app.use('/api/asistencia', asisRoutes);
+app.use('/api/codigo', codigoRouter)
 
 app.use('/api/util', funcRouter);
 app.use('/api/util', funcRouter);
