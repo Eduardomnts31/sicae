@@ -11,14 +11,14 @@ export const useGeneral = ({ userRoleNumber  }: UseGeneralParams) => {
 
     const roleMap: Record<RoleNumber, string> = {
     1: 'Alumno',
-    2: 'Administrador',
-    3: 'maestro',
+    3: 'Administrador',
+    2: 'maestro',
   };
   const userRole = roleMap[userRoleNumber];
 
   const allModulos: Modulo[] = [
     //rutas alumnos
-    { role: 'Alumno', name: 'Home', key: 'Home' },
+    { role: 'Alumno', name: 'home', key: 'Home' },
     { role: 'Alumno', name: 'Calificaciones', key: 'calificaciones' },
     { role: 'Alumno', name: 'Asistencias', key: 'Asistencias' },
     { role: 'Alumno', name: 'Pagos', key: 'Pagos' },

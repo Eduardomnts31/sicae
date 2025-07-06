@@ -1,15 +1,27 @@
+// ApiPrefix.ts
 import axios from 'axios';
 
-const currentHost = window.location.hostname; //obtiene la url que tenemos en el navegador, en este caso seria la ip del nabegador
-const res = await fetch(`http://${currentHost}:8000/api/util/server`);//la colocamos para hacer un get en la api que tengo en en back
-const data = await res.json();//si se cumple obtengo la ipque esta en mi controlador 
+const apiPromise = (async () => {
+  try {
+    const currentHost = window.location.hostname;
+    const res = await fetch(`http://${currentHost}:8000/api/util/server`);
+    const data = await res.json();
 
-const api = axios.create({
-    
-    baseURL: `http://${data.ip}:8000/api`, //y la colocamos en la BASE URL para hacer la peticion de crear
-    headers: {
+    return axios.create({
+      baseURL: `http://${data.ip}:8000/api`,
+      headers: {
         'Content-Type': 'application/json',
-    },
-});
+      },
+    });
+  } catch (error) {
+    console.error("Error al configurar API:", error);
+    return axios.create({
+      baseURL: '',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+  }
+})();
 
-export default api;
+export default apiPromise;

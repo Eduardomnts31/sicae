@@ -5,7 +5,7 @@ import { icon_auth_1, icon_auth_2 } from '../../Data/imagens_data';
 import { useLogin } from './hook/useLogin';
 import InputComponent from '../../components/InputComponent/InputComponent';
 
-export const Login = () => {
+const Login = () => {
 
     const { errors, formData, handleChange, handleSubmit } = useLogin(() => {
         console.log('Form submitted:', data);
@@ -52,3 +52,4 @@ export const Login = () => {
         </div>
     );
 }
+export default Login;

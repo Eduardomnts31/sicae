@@ -64,8 +64,7 @@ const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
       contraseña: formData.password,
     };
 
-    const { data } = await api.post('/login/', payload);
-    console.log("Respuesta del backend:", data); //hay que quitar o comentar esta linea ya que tira el hash 
+    const { data } = await (await api).post('/login/', payload);
 
     const usuario = data.usuarioLogged;
 
