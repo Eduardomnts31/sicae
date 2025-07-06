@@ -69,7 +69,7 @@ const InputCode: React.FC<InputCodeProps> = ({
       setLoading(true);
       setMessage(null);
 
-      const { data } = await api.post('/')
+      const { data } = await (await api).post('/')
       
       if (data.code && data.code.length === length) {
 
@@ -104,7 +104,7 @@ const InputCode: React.FC<InputCodeProps> = ({
       setLoading(true);
       setMessage(null);
       
-      const {data } = await api.post('')
+      const {data } = await (await api).post('')
 
 
       if (data.valid) {

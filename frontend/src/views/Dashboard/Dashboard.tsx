@@ -1,22 +1,21 @@
-
 import './dashboard.scss';
 import LateralMenu from "../../components/LateralMenu/LateralMenu";
-import { useDashboard } from './Hooks/DashboardHooks';
+import AnimationPage from '../../components/AnimationStep/AnimationStep';
+import { Outlet } from 'react-router-dom';
 
 function Dashboard() {
-  const {setComponenteActivo, renderComponente} = useDashboard();
 
   return (
-    <div className="dashboard-container">
+    <AnimationPage className="dashboard-container">
       <div className="dashboard-container-content">
         <div className="dashboard-container-left-menu">
-          <LateralMenu onSeleccionarModulo={setComponenteActivo} />
+          <LateralMenu/>
         </div>
         <div className="dashboard-section-content">
-          {renderComponente()}
+         <Outlet />
         </div>
       </div>
-    </div>
+    </AnimationPage>
   );
 }
 
