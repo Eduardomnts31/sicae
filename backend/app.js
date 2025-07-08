@@ -6,6 +6,7 @@ import genRoutes from './rutas/rutasGeneracion.js';
 import usuariosRoutes from './rutas/rutasUsuarios.js';
 import db from "./database/db.js";
 import lgInUsr from './rutas/rutasLogIn.js';
+import lgOutUsr from './rutas/rutasLogout.js';
 import funcRouter from './rutas/rutasIp.js';
 import asisRoutes from './rutas/rutasAsistencias.js';
 import codigoRouter from './rutas/rutasCodigo.js';
@@ -21,6 +22,7 @@ app.use('/api/programas', programasRoutes);//api crud programas
 app.use('/api/generaciones', genRoutes);//api crud generaciones
 app.use('/api/usuarios', usuariosRoutes);
 app.use('/api/login', lgInUsr);
+app.use('/api/logout', lgOutUsr);
 app.use('/api/asistencia', asisRoutes);
 app.use('/api/codigo', codigoRouter)
 
