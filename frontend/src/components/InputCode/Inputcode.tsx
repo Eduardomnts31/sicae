@@ -69,19 +69,19 @@ const InputCode: React.FC<InputCodeProps> = ({
       setLoading(true);
       setMessage(null);
 
-      const { data } = await (await api).post('/')
-      
-      if (data.code && data.code.length === length) {
+      const { data } = await (await api).get('/util/codigo')
+      console.log(data);
+      if (data && data.length === length) {
 
-        data.code.split('').forEach((char: string, i: number) => {
+        data.split('').forEach((char: string, i: number) => {
           if (inputsRef.current[i]) {
             inputsRef.current[i]!.value = char.toUpperCase();
           }
         });
         
-        setCode(data.code);
+        setCode(data);
         setMessage({ text: 'Código generado exitosamente', type: 'success' });
-        if (onComplete) onComplete(data.code);
+        if (onComplete) onComplete(data);
       } else {
         setMessage({ text: 'El código generado no tiene la longitud correcta', type: 'error' });
       }
@@ -179,6 +179,7 @@ const InputCode: React.FC<InputCodeProps> = ({
           >
             {loading ? 'Generando...' : 'Generar código'}
           </button>
+          
         ) : (
           <button
             className={`validate-code-btn ${buttonClassName}`}
