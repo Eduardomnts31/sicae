@@ -15,7 +15,7 @@ const codigo = db.define('codigo', {
     },
     creadoPor: {
         type: DataTypes.INTEGER,
-        allowNull:false
+        allowNull:true
 
     },
     estado: {

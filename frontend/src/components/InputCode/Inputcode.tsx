@@ -25,6 +25,7 @@ const InputCode: React.FC<InputCodeProps> = ({
   const [message, setMessage] = useState<{ text: string; type: 'success' | 'error' | 'info' } | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [code, setCode] = useState<string>('');
+  //const [codeUp, setCodeUp] = useState<string>('');
 
   useEffect(() => {
     inputsRef.current = inputsRef.current.slice(0, length);
@@ -80,6 +81,9 @@ const InputCode: React.FC<InputCodeProps> = ({
         });
         
         setCode(data);
+        const payload = {codigoDia: data};
+        console.log(payload);
+        await (await api).post('/codigo', payload);
         setMessage({ text: 'Código generado exitosamente', type: 'success' });
         if (onComplete) onComplete(data);
       } else {
