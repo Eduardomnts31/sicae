@@ -10,23 +10,24 @@ interface UseGeneralParams {
 export const useGeneral = ({ userRoleNumber  }: UseGeneralParams) => {
 
     const roleMap: Record<RoleNumber, string> = {
-    1: 'Alumno',
-    3: 'Administrador',
-    2: 'maestro',
+      1: 'Administrador',
+      3: 'Maestro',
+      2: 'Alumno',
   };
   const userRole = roleMap[userRoleNumber];
 
   const allModulos: Modulo[] = [
     //rutas alumnos
-    { role: 'Alumno', name: 'home', key: 'Home' },
+    { role: 'Alumno', name: 'Home', key: 'Home' },
     { role: 'Alumno', name: 'Calificaciones', key: 'calificaciones' },
     { role: 'Alumno', name: 'Asistencias', key: 'Asistencias' },
     { role: 'Alumno', name: 'Pagos', key: 'Pagos' },
     //rutas maestros
-    { role: 'maestro', name: 'Home', key: 'Home' },
-    { role: 'maestro', name: 'Alumnos', key: 'Alumnos' },
-    { role: 'maestro', name: 'Clases', key: 'Clases' },
+    { role: 'Maestro', name: 'Home', key: 'Home' },
+    { role: 'Maestro', name: 'Alumnos', key: 'Alumnos' },
+    { role: 'Maestro', name: 'Clases', key: 'Clases' },
     //rutas administrador
+    { role: 'Administrador', name: 'Home', key: 'Home' },
     { role: 'Administrador', name: 'Usuarios', key: 'Usuarios' },
     { role: 'Administrador', name: 'Reportes', key: 'Reportes' },
   ];

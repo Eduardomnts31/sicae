@@ -1,4 +1,3 @@
-import Button from "../../../components/Button/Button";
 import Table from "../../../components/Table/Table";
 import type { TableColumn } from "../../../components/Table/Table";
 
@@ -10,8 +9,8 @@ interface Student {
 }
 
 const students: Student[] = [
-    // { id: 1, name: 'Juan Pérez', email: 'juan@mail.com', grade: 85 },
-    // { id: 2, name: 'Ana Ruiz', email: 'ana@mail.com', grade: 92 },
+    { id: 1, name: 'Juan Pérez', email: 'juan@mail.com', grade: 85 },
+    { id: 2, name: 'Ana Ruiz', email: 'ana@mail.com', grade: 92 },
 ];
 
 const studentColumns: TableColumn<Student>[] = [

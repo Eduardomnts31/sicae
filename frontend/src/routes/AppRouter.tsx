@@ -9,6 +9,7 @@ import PrivateRoute from './PrivateRoute';
 
 const Dashboard = lazy(() => import('../views/Dashboard/Dashboard'));
 const Login = lazy(() => import('../views/Login/Login'));
+const Users = lazy(() => import('../views/Dashboard/Users/Users'))
 
 const AppRouter = () => {
   return (
@@ -31,7 +32,8 @@ const AppRouter = () => {
           <Route path="asistencias" element={<Asistencias />} />
           <Route path="calificaciones" element={<Calificaciones />} />
           <Route path="alumnos" element={<Alumnos />} />
-          <Route path="apagos" element={<Alumnos />} />
+          <Route path="pagos" element={<Alumnos />} />
+          <Route path='Usuarios' element={<Users/>}/>
           <Route index element={<Navigate to="home" />} />
         </Route>
 

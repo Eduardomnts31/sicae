@@ -2,7 +2,6 @@
 @use "../../utils/fuentes.scss" as style;
 
 .Lateral-Menu-container-left {
-    
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -11,18 +10,19 @@
     // padding-top: funct.px_to_vw(160);
 
     .container-icon-image-profile {
-       
         width: fit-content;
         height: fit-content;
         margin-bottom: funct.px_to_vw(70);
         margin-top: funct.px_to_vw(50);
-
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
         .imgae-profile {
-            background-color: red;
+            // background-color: red;
             width: funct.px_to_vw(100);
-            // border: 4px solid rgb(3, 3, 3);
-            // border-radius: 50%;
+            border: 4px solid rgb(3, 3, 3);
+            border-radius: 50%;
         }
     }
 
